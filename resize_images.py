@@ -22,6 +22,9 @@ def resize_images(folder_path, new_size):
             if len(os.listdir(f"{new_path}/{folder}")) == FILES_PER_SUBFOLDER:
                 print(f"Skiping folder {folder}")
                 folder_list.remove(folder)
+            else:
+                print(f"Incomplete convertion found in {folder}, removing it")
+                os.system(f"rm -rf {new_path}/{folder}")
     else:
         os.mkdir(new_path)
 
